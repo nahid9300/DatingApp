@@ -7,7 +7,7 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  model: any = {};
+  model: any={};
 
   constructor(private authService: AuthService) { }
 
@@ -23,5 +23,22 @@ export class NavComponent implements OnInit {
     }
     );
   }
+  loggedIn(){
+    const token=localStorage.getItem('Token');
+    return !!token;
+  }
+  logout()
+  {
+   localStorage.removeItem('Token');
+   console.log('logged out');
+  }
+
+
+
 
 }
+
+// export class userDto{
+//   Username :string;
+//   password :string;
+// }

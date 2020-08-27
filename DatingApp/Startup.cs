@@ -43,7 +43,6 @@ namespace DatingApp
             services.AddAuthentication(o =>
             {
                 o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters=new TokenValidationParameters
@@ -64,6 +63,7 @@ namespace DatingApp
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             app.UseAuthentication();
             app.UseRouting();
 
