@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
-
+import {JwtHelperService} from '@auth0/angular-jwt'
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   baseUrl = 'https://localhost:44311/api/auth/';
-  
+  jwtHelper=new JwtHelperService();
+  decodedToken:any;
+
+
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'responseType': 'json'
@@ -24,6 +28,8 @@ return this.http.post(this.baseUrl + 'login', model, { headers: this.headers })
     if(user)
     {
       localStorage.setItem('Token', user.token);
+      this.decodedToken=this.jwtHelper.decodeToken(user.token);
+      console.log(this.decodedToken);
     }
   })
 )
@@ -33,5 +39,9 @@ register(model:any)
   return this.http.post(this.baseUrl+'register',model);
 }
 
+loggedIn(){
+  const token=localStorage.getItem('Token');
+  return !this.jwtHelper.isTokenExpired(token);
+}
 
 }
