@@ -5,7 +5,7 @@ import { AlertifyService } from '../_services/alertify.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
   model: any={};
