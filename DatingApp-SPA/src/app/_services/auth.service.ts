@@ -22,12 +22,14 @@ constructor(private http: HttpClient) { }
 
 
 login(model: any) {
+
 return this.http.post(this.baseUrl + 'login', model, { headers: this.headers })
 .pipe(
   map((response: any) => {
     const user = response;
     if(user)
     {
+      
       localStorage.setItem('Token', user.token);
       this.decodedToken=this.jwtHelper.decodeToken(user.token);
       console.log(this.decodedToken);
