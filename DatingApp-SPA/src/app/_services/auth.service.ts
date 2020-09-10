@@ -32,7 +32,7 @@ return this.http.post(this.baseUrl + 'login', model, { headers: this.headers })
       
       localStorage.setItem('Token', user.token);
       this.decodedToken=this.jwtHelper.decodeToken(user.token);
-      console.log(this.decodedToken);
+      // console.log(this.decodedToken);
     }
   })
 )

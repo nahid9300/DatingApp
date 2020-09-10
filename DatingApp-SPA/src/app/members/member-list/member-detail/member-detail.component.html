@@ -29,9 +29,9 @@
         </div>
       </div>
     </div>
-    <div class="class-sm-8 ml-4">
+    <div class="col-sm-8 ml-4">
       <div class="tab-panel">
-        <tabset>
+        <tabset class="member-tabset">
           <tab heading="About {{user?.knownAs}}">
             <h4>Description</h4>
             <p>{{user?.introduction}}</p>
@@ -43,7 +43,7 @@
             <p>{{user?.interests}}</p>
           </tab>
           <tab heading="Photos">
-            <p>Photos will go here</p>
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
           </tab>
           <tab heading="Messages">
             <p>Messages will go here</p>
