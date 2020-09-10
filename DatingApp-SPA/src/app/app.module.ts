@@ -22,6 +22,12 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { MemberEditComponent } from './members/member-list/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guard/prevent-unsaved-changes.guard';
+import { AlertifyService } from './_services/alertify.service';
+import { AuthGuard } from './_guard/auth.guard';
+import { UserService } from './_services/user.service';
 
 export function tokenGetter()
 {
@@ -45,7 +51,8 @@ export function tokenGetter()
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
   imports: [
     BrowserModule,
@@ -67,8 +74,14 @@ export function tokenGetter()
   providers: [
     AuthService,
     ErrorInterceptorProvider,
+    AlertifyService,
+    AuthGuard,
+    UserService,
+
     MemberDetailResolver,
     MemberListResolver,
+    MemberEditResolver,
+    PreventUnsavedChanges
     // {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
   ],
   bootstrap: [AppComponent]
