@@ -43,15 +43,10 @@ namespace DatingApp
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddCors();
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
-
-            //new
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
 
-
-
-
-
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAuthentication(o =>
             {
                 o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

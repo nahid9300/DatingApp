@@ -28,6 +28,7 @@ import { PreventUnsavedChanges } from './_guard/prevent-unsaved-changes.guard';
 import { AlertifyService } from './_services/alertify.service';
 import { AuthGuard } from './_guard/auth.guard';
 import { UserService } from './_services/user.service';
+import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
 
 export function tokenGetter()
 {
@@ -52,7 +53,8 @@ export function tokenGetter()
       MessagesComponent,
       MemberCardComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
   imports: [
     BrowserModule,
