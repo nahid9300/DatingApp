@@ -29,6 +29,7 @@ import { AlertifyService } from './_services/alertify.service';
 import { AuthGuard } from './_guard/auth.guard';
 import { UserService } from './_services/user.service';
 import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 export function tokenGetter()
 {
@@ -65,6 +66,7 @@ export function tokenGetter()
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     NgxGalleryModule,
+    FileUploadModule,
     JwtModule.forRoot({
       config:{
         tokenGetter:tokenGetter,

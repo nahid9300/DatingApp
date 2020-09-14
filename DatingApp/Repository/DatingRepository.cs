@@ -50,5 +50,10 @@ namespace DatingApp.Repository
             var photo = await _applicationContext.Photos.FirstOrDefaultAsync(p => p.Id == id);
             return photo;
         }
+
+        public async Task<Photo> GetMainPhotoForUser(int userId)
+        {
+            return await _applicationContext.Photos.Where(u => u.UserId == userId).FirstOrDefaultAsync(p => p.IsMain);
+        }
     }
 }
