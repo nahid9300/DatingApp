@@ -30,6 +30,7 @@ import { AuthGuard } from './_guard/auth.guard';
 import { UserService } from './_services/user.service';
 import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 export function tokenGetter()
 {
@@ -74,7 +75,9 @@ export function tokenGetter()
         allowedDomains : ['localhost:44311'],
         disallowedRoutes:['localhost:44311/api/auth']
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
     AuthService,
