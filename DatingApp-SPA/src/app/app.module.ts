@@ -31,7 +31,8 @@ import { UserService } from './_services/user.service';
 import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
- import{TimeAgoPipe} from 'time-ago-pipe'
+import{TimeAgoPipe} from 'time-ago-pipe';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 export function tokenGetter()
@@ -76,6 +77,7 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
     BrowserAnimationsModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     NgxGalleryModule,
     FileUploadModule,

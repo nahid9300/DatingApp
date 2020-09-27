@@ -14,10 +14,10 @@ namespace DatingApp.Helpers
 
         public PaginationHeader(int currentPage, int itemsPerPage,int totalItems,int totalPages)
         {
-            CurrentPage = currentPage;
-            ItemsPerPage = itemsPerPage;
-            TotalItems = totalItems;
-            TotalPages = totalPages;
+            this.CurrentPage = currentPage;
+            this.ItemsPerPage = itemsPerPage;
+            this.TotalItems = totalItems;
+            this.TotalPages = totalPages;
         }
     }
 }
